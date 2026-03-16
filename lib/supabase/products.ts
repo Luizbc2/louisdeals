@@ -1,9 +1,18 @@
 import type { Product } from "@/lib/types";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabaseClient } from "@/lib/supabase/client";
 
 export async function fetchProducts(
   numeroAchado?: string
 ): Promise<Product[]> {
+  const supabase = getSupabaseClient();
+
+  if (!supabase) {
+    console.warn(
+      "Supabase env vars ausentes. Defina NEXT_PUBLIC_SUPABASE_URL e NEXT_PUBLIC_SUPABASE_ANON_KEY para carregar produtos reais."
+    );
+    return [];
+  }
+
   let query = supabase
     .from("produtos")
     .select(
