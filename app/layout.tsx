@@ -4,9 +4,12 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "louisdeals",
+  title: "LouisDeals",
   description:
-    "Catalogo de achados com busca rapida por codigo, filtros por categoria e link direto para compra."
+    "Catalogo de achados com busca rapida por codigo, filtros por categoria e link direto para compra.",
+  icons: {
+    icon: "/icon.svg"
+  }
 };
 
 type RootLayoutProps = {
