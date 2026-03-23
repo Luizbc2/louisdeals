@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "As melhores ofertas.",
+  title: "LouisDeals.",
   description:
     "Catalogo de achados com busca rapida por codigo, filtros por categoria e link direto para compra.",
   icons: {
