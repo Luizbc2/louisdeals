@@ -20,15 +20,15 @@ const highlights = [
 
 export function Header() {
   return (
-    <header className="animate-fade-up mb-6 space-y-3 sm:space-y-4">
-      <div className="glass-panel relative overflow-hidden rounded-[28px] p-2.5 sm:p-3">
+    <header className="animate-fade-up mb-6 w-full space-y-3 sm:space-y-4">
+      <div className="glass-panel relative w-full overflow-hidden rounded-[28px] p-2.5 sm:p-3">
         <div className="hero-orb animate-float left-[-14px] top-[-10px] h-20 w-20 bg-emerald-400/26" />
         <div className="hero-orb right-[-18px] bottom-[-16px] h-24 w-24 bg-emerald-500/18" />
 
-        <div className="relative overflow-hidden rounded-[22px] border border-emerald-400/12 bg-[linear-gradient(135deg,#0b1711_0%,#0d2116_45%,#08110c_100%)] px-4 py-6 text-center sm:px-7 sm:py-7">
+        <div className="relative w-full overflow-hidden rounded-[22px] border border-emerald-400/12 bg-[linear-gradient(135deg,#0b1711_0%,#0d2116_45%,#08110c_100%)] px-4 py-6 text-center sm:px-7 sm:py-7">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(57,217,117,0.18),transparent_22%),radial-gradient(circle_at_85%_20%,rgba(57,217,117,0.12),transparent_18%)]" />
 
-          <div className="relative mx-auto flex max-w-[560px] flex-col items-center text-center">
+          <div className="relative mx-auto flex w-full max-w-[560px] flex-col items-center text-center">
             <p className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-400/12 bg-emerald-400/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-emerald-300">
               <span>{"\u{2728}"}</span>
               LouisDeals
@@ -43,11 +43,11 @@ export function Header() {
         </div>
       </div>
 
-      <div className="glass-panel relative overflow-hidden rounded-[30px] px-4 py-5 sm:px-6 sm:py-6 lg:px-7">
+      <div className="glass-panel relative w-full overflow-hidden rounded-[30px] px-4 py-5 sm:px-6 sm:py-6 lg:px-7">
         <div className="hero-orb left-[-20px] top-12 h-24 w-24 bg-emerald-400/20" />
         <div className="hero-orb right-[-10px] top-[-12px] h-24 w-24 bg-emerald-500/14" />
 
-        <div className="relative mx-auto max-w-[680px] space-y-5">
+        <div className="relative mx-auto w-full max-w-[680px] space-y-5">
           <div className="mx-auto flex max-w-[620px] flex-col items-center gap-4 text-center">
             <div className="flex h-[3.4rem] w-[3.4rem] items-center justify-center rounded-[20px] border border-emerald-400/14 bg-emerald-400/10 text-emerald-300 shadow-[var(--shadow-soft)]">
               <ShoppingBag className="h-6 w-6" strokeWidth={2.1} />

@@ -50,9 +50,16 @@ img {
 .page-shell {
   margin: 0 auto;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 1220px;
   padding: 18px 16px 40px;
+}
+
+.page-shell > * {
+  width: 100%;
 }
 
 .glass-panel {
