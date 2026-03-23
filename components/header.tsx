@@ -39,7 +39,7 @@ export function Header() {
                   As melhores ofertas
                 </p>
                 <h1 className="text-[2.2rem] font-black leading-[0.95] tracking-[-0.06em] text-white sm:text-[2.8rem] lg:text-[3.35rem]">
-                  LouisDeals
+                  
                 </h1>
                 <p className="mt-3 max-w-[60ch] text-sm leading-6 text-[var(--muted)] sm:text-[0.96rem]">
                   Um catalogo de achados com busca instantanea, filtros por
