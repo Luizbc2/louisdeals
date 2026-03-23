@@ -1,0 +1,40 @@
+<svg width="1600" height="420" viewBox="0 0 1600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="420" rx="40" fill="#061009"/>
+  <rect x="14" y="14" width="1572" height="392" rx="28" fill="url(#bg)"/>
+  <circle cx="202" cy="98" r="146" fill="url(#glow1)" fill-opacity="0.9"/>
+  <circle cx="1368" cy="82" r="128" fill="url(#glow2)" fill-opacity="0.8"/>
+  <circle cx="1222" cy="334" r="174" fill="url(#glow3)" fill-opacity="0.6"/>
+  <rect x="74" y="78" width="230" height="50" rx="25" fill="#0E2016" stroke="#45E07C" stroke-opacity="0.18"/>
+  <text x="115" y="111" fill="#77F2A2" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4">CURATED DEALS</text>
+  <text x="74" y="220" fill="#F2FFF6" font-family="Segoe UI, Arial, sans-serif" font-size="110" font-weight="800" letter-spacing="-4">LouisDeals</text>
+  <text x="80" y="278" fill="#9AB0A0" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="500">Achados certos, busca rapida e clique direto para a oferta.</text>
+  <g opacity="0.95">
+    <rect x="1148" y="128" width="238" height="176" rx="34" fill="#0B1711" stroke="#45E07C" stroke-opacity="0.14"/>
+    <rect x="1182" y="160" width="170" height="20" rx="10" fill="#43DD7A"/>
+    <rect x="1182" y="194" width="126" height="14" rx="7" fill="#D9FFE6" fill-opacity="0.92"/>
+    <rect x="1182" y="220" width="152" height="14" rx="7" fill="#D9FFE6" fill-opacity="0.52"/>
+    <rect x="1182" y="255" width="108" height="30" rx="15" fill="#173321"/>
+    <path d="M1230 255H1336C1344.84 255 1352 262.163 1352 271V285H1214V271C1214 262.163 1221.16 255 1230 255Z" fill="#2FD26C"/>
+    <circle cx="1266" cy="110" r="42" fill="#0E2016" stroke="#45E07C" stroke-opacity="0.18"/>
+    <path d="M1246 111C1246 100.507 1254.51 92 1265 92H1267C1277.49 92 1286 100.507 1286 111V115H1246V111Z" fill="#39D975"/>
+    <path d="M1237 119H1295V137C1295 153.569 1281.57 167 1265 167H1267C1250.43 167 1237 153.569 1237 137V119Z" fill="#09140E"/>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="800" y1="14" x2="800" y2="406" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C1811"/>
+      <stop offset="1" stop-color="#07100B"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(202 98) rotate(90) scale(146)">
+      <stop stop-color="#40DA78" stop-opacity="0.44"/>
+      <stop offset="1" stop-color="#40DA78" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1368 82) rotate(90) scale(128)">
+      <stop stop-color="#2ABF63" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#2ABF63" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1222 334) rotate(90) scale(174)">
+      <stop stop-color="#1B8E49" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#1B8E49" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
