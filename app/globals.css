@@ -1,18 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fffaf7;
-  --surface: #ffffff;
-  --surface-muted: #fff4ee;
-  --surface-soft: rgba(255, 255, 255, 0.76);
-  --foreground: #111827;
-  --muted: #6b7280;
-  --border: rgba(238, 77, 45, 0.12);
-  --accent: #ee4d2d;
-  --accent-strong: #d93f20;
-  --shadow: 0 22px 50px rgba(238, 77, 45, 0.1);
-  --shadow-soft: 0 10px 24px rgba(15, 23, 42, 0.06);
-  --shadow-card: 0 18px 42px rgba(15, 23, 42, 0.08);
+  --background: #050806;
+  --background-soft: #0a120d;
+  --surface: rgba(9, 16, 13, 0.96);
+  --surface-muted: #0d1a14;
+  --surface-soft: rgba(13, 25, 19, 0.84);
+  --foreground: #f3fff6;
+  --muted: #8ea295;
+  --border: rgba(88, 255, 149, 0.14);
+  --accent: #35cf70;
+  --accent-strong: #1fa756;
+  --accent-soft: rgba(53, 207, 112, 0.16);
+  --shadow: 0 22px 60px rgba(0, 0, 0, 0.36);
+  --shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.22);
+  --shadow-card: 0 22px 44px rgba(7, 18, 12, 0.42);
 }
 
 * {
@@ -21,16 +23,16 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 15% 18%, rgba(255, 214, 201, 0.38), transparent 20%),
-    radial-gradient(circle at 88% 10%, rgba(238, 77, 45, 0.12), transparent 16%),
-    radial-gradient(circle at top, rgba(238, 77, 45, 0.14), transparent 26%),
-    linear-gradient(180deg, #fffefc 0%, var(--background) 45%, #fff7f1 100%);
+    radial-gradient(circle at 15% 12%, rgba(57, 217, 117, 0.2), transparent 18%),
+    radial-gradient(circle at 85% 10%, rgba(57, 217, 117, 0.14), transparent 16%),
+    linear-gradient(180deg, #060a07 0%, var(--background-soft) 30%, var(--background) 100%);
   color: var(--foreground);
   font-family: "Aptos", "Segoe UI", "Helvetica Neue", sans-serif;
 }
@@ -49,19 +51,20 @@ img {
   margin: 0 auto;
   min-height: 100vh;
   width: 100%;
-  max-width: 1180px;
+  max-width: 1220px;
   padding: 18px 16px 40px;
 }
 
 .glass-panel {
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.92);
+  background:
+    linear-gradient(180deg, rgba(12, 23, 17, 0.98) 0%, rgba(7, 12, 10, 0.98) 100%);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 }
 
 .soft-panel {
-  border: 1px solid rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(83, 255, 146, 0.12);
   background: var(--surface-soft);
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(14px);
@@ -71,6 +74,7 @@ img {
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: -0.03em;
+  color: var(--foreground);
 }
 
 .section-subtitle {
@@ -98,8 +102,8 @@ img {
 .hero-orb {
   position: absolute;
   border-radius: 999px;
-  filter: blur(12px);
-  opacity: 0.55;
+  filter: blur(18px);
+  opacity: 0.5;
   pointer-events: none;
 }
 

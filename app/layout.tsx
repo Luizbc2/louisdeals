@@ -4,9 +4,9 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: `Achadinhos da Shopee ${"\u{1F6CD}\uFE0F"}`,
+  title: "louisdeals",
   description:
-    "Vitrine de afiliados mobile-first para encontrar rapido os produtos dos videos."
+    "Catalogo de achados com busca rapida por codigo, filtros por categoria e link direto para compra."
 };
 
 type RootLayoutProps = {
