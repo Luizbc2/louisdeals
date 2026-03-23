@@ -24,12 +24,19 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   background:
     radial-gradient(circle at 15% 12%, rgba(57, 217, 117, 0.2), transparent 18%),
     radial-gradient(circle at 85% 10%, rgba(57, 217, 117, 0.14), transparent 16%),
@@ -53,10 +60,12 @@ img {
   min-height: 100vh;
   width: 100%;
   max-width: 1220px;
+  overflow-x: clip;
   padding: 18px 16px 40px;
 }
 
 .glass-panel {
+  isolation: isolate;
   border: 1px solid var(--border);
   background:
     linear-gradient(180deg, rgba(12, 23, 17, 0.98) 0%, rgba(7, 12, 10, 0.98) 100%);
@@ -65,6 +74,7 @@ img {
 }
 
 .soft-panel {
+  isolation: isolate;
   border: 1px solid rgba(83, 255, 146, 0.12);
   background: var(--surface-soft);
   box-shadow: var(--shadow-soft);
@@ -106,6 +116,7 @@ img {
   filter: blur(18px);
   opacity: 0.5;
   pointer-events: none;
+  will-change: transform;
 }
 
 .animate-fade-up {

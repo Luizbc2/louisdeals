@@ -20,20 +20,20 @@ const highlights = [
 
 export function Header() {
   return (
-    <header className="animate-fade-up mb-6 w-full space-y-3 sm:space-y-4">
-      <div className="glass-panel relative w-full overflow-hidden rounded-[28px] p-2.5 sm:p-3">
-        <div className="hero-orb animate-float left-[-14px] top-[-10px] h-20 w-20 bg-emerald-400/26" />
-        <div className="hero-orb right-[-18px] bottom-[-16px] h-24 w-24 bg-emerald-500/18" />
+    <header className="animate-fade-up mb-6 w-full max-w-full overflow-x-clip space-y-3 sm:space-y-4">
+      <div className="glass-panel relative w-full max-w-full overflow-hidden rounded-[28px] p-2.5 sm:p-3">
+        <div className="hero-orb animate-float left-0 top-0 h-20 w-20 bg-emerald-400/26 sm:left-[-14px] sm:top-[-10px]" />
+        <div className="hero-orb bottom-0 right-0 h-24 w-24 bg-emerald-500/18 sm:bottom-[-16px] sm:right-[-18px]" />
 
-        <div className="relative overflow-hidden rounded-[22px] border border-emerald-400/12 bg-[linear-gradient(135deg,#0b1711_0%,#0d2116_45%,#08110c_100%)] px-4 py-6 text-center sm:px-7 sm:py-7">
+        <div className="relative max-w-full overflow-hidden rounded-[22px] border border-emerald-400/12 bg-[linear-gradient(135deg,#0b1711_0%,#0d2116_45%,#08110c_100%)] px-4 py-6 text-center sm:px-7 sm:py-7">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(57,217,117,0.18),transparent_22%),radial-gradient(circle_at_85%_20%,rgba(57,217,117,0.12),transparent_18%)]" />
 
-          <div className="relative mx-auto w-full max-w-[560px] text-center">
-            <p className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-400/12 bg-emerald-400/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-emerald-300">
+          <div className="relative mx-auto w-full max-w-[560px] min-w-0 text-center">
+            <p className="mx-auto mb-3 inline-flex max-w-full items-center gap-2 rounded-full border border-emerald-400/12 bg-emerald-400/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-emerald-300">
               <span>{"\u{2728}"}</span>
               LouisDeals
             </p>
-            <h1 className="mx-auto max-w-[10ch] text-[2rem] font-black leading-[0.92] tracking-[-0.06em] text-white sm:max-w-none sm:text-[3rem] lg:text-[3.8rem]">
+            <h1 className="mx-auto max-w-[10ch] break-words text-[2rem] font-black leading-[0.92] tracking-[-0.06em] text-white sm:max-w-none sm:text-[3rem] lg:text-[3.8rem]">
               LouisDeals
             </h1>
             <p className="mx-auto mt-3 max-w-[30ch] text-sm leading-6 text-emerald-50/72 sm:max-w-[40ch] sm:text-[0.98rem]">
@@ -43,21 +43,21 @@ export function Header() {
         </div>
       </div>
 
-      <div className="glass-panel relative w-full overflow-hidden rounded-[30px] px-4 py-5 sm:px-6 sm:py-6 lg:px-7">
-        <div className="hero-orb left-[-20px] top-12 h-24 w-24 bg-emerald-400/20" />
-        <div className="hero-orb right-[-10px] top-[-12px] h-24 w-24 bg-emerald-500/14" />
+      <div className="glass-panel relative w-full max-w-full overflow-hidden rounded-[30px] px-4 py-5 sm:px-6 sm:py-6 lg:px-7">
+        <div className="hero-orb left-0 top-10 h-24 w-24 bg-emerald-400/20 sm:left-[-20px] sm:top-12" />
+        <div className="hero-orb right-0 top-0 h-24 w-24 bg-emerald-500/14 sm:right-[-10px] sm:top-[-12px]" />
 
-        <div className="relative mx-auto w-full max-w-[760px]">
-          <div className="mx-auto flex w-full max-w-[620px] flex-col items-center text-center">
+        <div className="relative mx-auto w-full max-w-[760px] min-w-0">
+          <div className="mx-auto flex w-full max-w-[620px] min-w-0 flex-col items-center text-center">
             <div className="mb-4 flex h-[3.4rem] w-[3.4rem] items-center justify-center rounded-[20px] border border-emerald-400/14 bg-emerald-400/10 text-emerald-300 shadow-[var(--shadow-soft)]">
               <ShoppingBag className="h-6 w-6" strokeWidth={2.1} />
             </div>
 
-            <p className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-400/14 bg-emerald-400/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-emerald-300">
+            <p className="mx-auto mb-3 inline-flex max-w-full items-center gap-2 rounded-full border border-emerald-400/14 bg-emerald-400/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-emerald-300">
               <span>{"\u{2728}"}</span>
               As melhores ofertas
             </p>
-            <h2 className="mx-auto max-w-[12ch] text-[1.75rem] font-black leading-[1] tracking-[-0.05em] text-white sm:max-w-none sm:text-[2.25rem]">
+            <h2 className="mx-auto max-w-[12ch] break-words text-[1.75rem] font-black leading-[1] tracking-[-0.05em] text-white sm:max-w-none sm:text-[2.25rem]">
               Encontre rapido o produto certo.
             </h2>
             <p className="mx-auto mt-3 max-w-[34ch] text-sm leading-6 text-[var(--muted)] sm:max-w-[56ch] sm:text-[0.98rem]">
@@ -67,7 +67,7 @@ export function Header() {
             </p>
           </div>
 
-          <div className="mt-5 grid w-full gap-3 sm:grid-cols-3">
+          <div className="mt-5 grid w-full min-w-0 gap-3 sm:grid-cols-3">
             {highlights.map((item) => {
               const Icon = item.icon;
 
