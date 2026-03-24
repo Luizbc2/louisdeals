@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Product } from "@/lib/types";
 import { CategoryFilters } from "@/components/category-filters";
 import { ProductGrid } from "@/components/product-grid";
+import { ProductPreviewPanel } from "@/components/product-preview-panel";
 import { SearchBar } from "@/components/search-bar";
 
 type ProductShowcaseProps = {
@@ -15,6 +16,9 @@ const ALL_CATEGORY = "Todos";
 export function ProductShowcase({ initialProducts }: ProductShowcaseProps) {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState(ALL_CATEGORY);
+  const [selectedProductId, setSelectedProductId] = useState<number | null>(
+    null
+  );
 
   const categories = useMemo(() => {
     const dynamicCategories = Array.from(
@@ -25,19 +29,39 @@ export function ProductShowcase({ initialProducts }: ProductShowcaseProps) {
   }, [initialProducts]);
 
   const filteredProducts = useMemo(() => {
-    const normalizedSearch = search.trim().toLowerCase();
+    const normalizedSearch = search.trim();
 
     return initialProducts.filter((product) => {
       const matchesCategory =
         activeCategory === ALL_CATEGORY || product.categoria === activeCategory;
       const matchesSearch =
         normalizedSearch.length === 0 ||
-        String(product.numero_achado).includes(normalizedSearch) ||
-        product.titulo.toLowerCase().includes(normalizedSearch);
+        String(product.numero_achado) === normalizedSearch;
 
       return matchesCategory && matchesSearch;
     });
   }, [activeCategory, initialProducts, search]);
+
+  const selectedProduct = useMemo(
+    () =>
+      filteredProducts.find((product) => product.id === selectedProductId) ??
+      null,
+    [filteredProducts, selectedProductId]
+  );
+
+  useEffect(() => {
+    if (selectedProductId === null) {
+      return;
+    }
+
+    const productIsVisible = filteredProducts.some(
+      (product) => product.id === selectedProductId
+    );
+
+    if (!productIsVisible) {
+      setSelectedProductId(null);
+    }
+  }, [filteredProducts, selectedProductId]);
 
   return (
     <section className="grid min-w-0 gap-4 xl:grid-cols-[300px_minmax(0,1fr)] xl:gap-5">
@@ -88,14 +112,30 @@ export function ProductShowcase({ initialProducts }: ProductShowcaseProps) {
                 Codigo: #{search}
               </span>
             ) : null}
+            {selectedProduct ? (
+              <span className="rounded-full border border-emerald-400/12 bg-emerald-400/10 px-3 py-1.5 text-xs font-semibold text-emerald-200">
+                Aberto: #{selectedProduct.numero_achado}
+              </span>
+            ) : null}
             <span className="rounded-full border border-emerald-400/12 bg-black/45 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-emerald-300">
               {filteredProducts.length} itens
             </span>
           </div>
         </div>
 
-        <ProductGrid products={filteredProducts} />
+        <ProductGrid
+          products={filteredProducts}
+          selectedProductId={selectedProductId}
+          onSelectProduct={(product) => setSelectedProductId(product.id)}
+        />
       </div>
+
+      {selectedProduct ? (
+        <ProductPreviewPanel
+          product={selectedProduct}
+          onClose={() => setSelectedProductId(null)}
+        />
+      ) : null}
     </section>
   );
 }

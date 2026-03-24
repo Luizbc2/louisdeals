@@ -3,9 +3,15 @@ import { ProductCard } from "@/components/product-card";
 
 type ProductGridProps = {
   products: Product[];
+  selectedProductId?: number | null;
+  onSelectProduct?: (product: Product) => void;
 };
 
-export function ProductGrid({ products }: ProductGridProps) {
+export function ProductGrid({
+  products,
+  selectedProductId = null,
+  onSelectProduct,
+}: ProductGridProps) {
   if (products.length === 0) {
     return (
       <div className="glass-panel rounded-[30px] px-5 py-10 text-center">
@@ -23,7 +29,12 @@ export function ProductGrid({ products }: ProductGridProps) {
   return (
     <div className="flex w-full min-w-0 flex-col gap-4 lg:grid lg:grid-cols-3 xl:grid-cols-4">
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard
+          key={product.id}
+          product={product}
+          isSelected={selectedProductId === product.id}
+          onSelect={onSelectProduct}
+        />
       ))}
     </div>
   );
