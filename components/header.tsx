@@ -1,93 +1,114 @@
-import { ShoppingBag, Sparkles, Tag, Zap } from "lucide-react";
+import { ArrowDownRight, ShoppingBag, Sparkles, Tag, Zap } from "lucide-react";
 
 const highlights = [
   {
     icon: Sparkles,
-    label: "Busca inteligente",
-    value: "Ache pelo codigo do video"
+    label: "Busca precisa",
+    value: "Digite o codigo e encontre em segundos"
   },
   {
     icon: Tag,
-    label: "Categorias",
-    value: "Filtre por tipo de produto"
+    label: "Categorias organizadas",
+    value: "Encontre o tipo de produto que voce quer"
   },
   {
     icon: Zap,
-    label: "Clique rapido",
-    value: "Abre direto a oferta"
+    label: "Clique direto",
+    value: "Sai da vitrine e abre a oferta"
   }
 ];
 
 export function Header() {
   return (
-    <header className="animate-fade-up mb-6 w-full max-w-full overflow-x-clip space-y-3 sm:space-y-4">
-      <div className="glass-panel relative w-full max-w-full overflow-hidden rounded-[28px] p-2.5 sm:p-3">
-        <div className="hero-orb animate-float left-0 top-0 h-20 w-20 bg-emerald-400/26 sm:left-[-14px] sm:top-[-10px]" />
-        <div className="hero-orb bottom-0 right-0 h-24 w-24 bg-emerald-500/18 sm:bottom-[-16px] sm:right-[-18px]" />
+    <header className="animate-fade-up mb-4 w-full max-w-full overflow-x-clip sm:mb-5">
+      <div className="glass-panel relative overflow-hidden rounded-[34px] px-4 py-4 sm:px-5 sm:py-5 lg:px-6 lg:py-6">
+        <div className="hero-orb animate-float left-[-28px] top-[-12px] h-24 w-24 bg-emerald-300/22" />
+        <div className="hero-orb bottom-[-28px] right-[-24px] h-32 w-32 bg-emerald-500/16" />
+        <div className="absolute inset-[1px] rounded-[33px] border border-white/4" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(132,234,175,0.16),transparent_24%),radial-gradient(circle_at_88%_18%,rgba(132,234,175,0.1),transparent_18%),linear-gradient(135deg,rgba(255,255,255,0.03),transparent_42%)]" />
 
-        <div className="relative max-w-full overflow-hidden rounded-[22px] border border-emerald-400/12 bg-[linear-gradient(135deg,#0b1711_0%,#0d2116_45%,#08110c_100%)] px-4 py-6 text-center sm:px-7 sm:py-7">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(57,217,117,0.18),transparent_22%),radial-gradient(circle_at_85%_20%,rgba(57,217,117,0.12),transparent_18%)]" />
-
-          <div className="relative mx-auto w-full max-w-[560px] min-w-0 text-center">
-            <p className="mx-auto mb-3 inline-flex max-w-full items-center gap-2 rounded-full border border-emerald-400/12 bg-emerald-400/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-emerald-300">
-              <span>{"\u{2728}"}</span>
-              LouisDeals
-            </p>
-            <h1 className="mx-auto max-w-[10ch] break-words text-[2rem] font-black leading-[0.92] tracking-[-0.06em] text-white sm:max-w-none sm:text-[3rem] lg:text-[3.8rem]">
-              LouisDeals
-            </h1>
-            <p className="mx-auto mt-3 max-w-[30ch] text-sm leading-6 text-emerald-50/72 sm:max-w-[40ch] sm:text-[0.98rem]">
-              Achados certos, busca rapida e acesso direto para a oferta.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="glass-panel relative w-full max-w-full overflow-hidden rounded-[30px] px-4 py-5 sm:px-6 sm:py-6 lg:px-7">
-        <div className="hero-orb left-0 top-10 h-24 w-24 bg-emerald-400/20 sm:left-[-20px] sm:top-12" />
-        <div className="hero-orb right-0 top-0 h-24 w-24 bg-emerald-500/14 sm:right-[-10px] sm:top-[-12px]" />
-
-        <div className="relative mx-auto w-full max-w-[760px] min-w-0">
-          <div className="mx-auto flex w-full max-w-[620px] min-w-0 flex-col items-center text-center">
-            <div className="mb-4 flex h-[3.4rem] w-[3.4rem] items-center justify-center rounded-[20px] border border-emerald-400/14 bg-emerald-400/10 text-emerald-300 shadow-[var(--shadow-soft)]">
-              <ShoppingBag className="h-6 w-6" strokeWidth={2.1} />
+        <div className="relative grid gap-3 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)]">
+          <div className="min-w-0 overflow-hidden rounded-[28px] border border-emerald-300/10 bg-[linear-gradient(145deg,rgba(14,29,23,0.92),rgba(8,15,12,0.96))] p-4.5 sm:p-6 lg:p-6">
+            <div className="mb-4 flex flex-wrap items-center gap-3">
+              <span className="eyebrow">
+                <span>{"\u2726"}</span>
+                LouisDeals
+              </span>
+              <span className="tag-pill-muted">As melhores ofertas!</span>
             </div>
 
-            <p className="mx-auto mb-3 inline-flex max-w-full items-center gap-2 rounded-full border border-emerald-400/14 bg-emerald-400/10 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-emerald-300">
-              <span>{"\u{2728}"}</span>
-              As melhores ofertas
+            <div className="max-w-none lg:max-w-[12ch]">
+              <h1 className="display-title max-w-[9.8ch] text-[1.9rem] font-black leading-[0.92] tracking-[-0.08em] text-white sm:max-w-[12ch] sm:text-[3rem] lg:max-w-none lg:text-[4rem]">
+                Os melhores produtos que valem o seu clique.
+              </h1>
+            </div>
+
+            <p className="mt-3.5 max-w-[54ch] text-sm leading-6 text-emerald-50/74 sm:text-[0.96rem]">
+              Encontre produtos pelos codigos dos videos, navegue por categoria
+              e abra direto a oferta. Tudo reunido em uma vitrine pratica,
+              bonita e feita para facilitar sua busca.
             </p>
-            <h2 className="mx-auto max-w-[12ch] break-words text-[1.75rem] font-black leading-[1] tracking-[-0.05em] text-white sm:max-w-none sm:text-[2.25rem]">
-              Encontre rapido o produto certo.
-            </h2>
-            <p className="mx-auto mt-3 max-w-[34ch] text-sm leading-6 text-[var(--muted)] sm:max-w-[56ch] sm:text-[0.98rem]">
-              Digite o codigo do produto, filtre por categoria e abra direto o
-              link da promocao. Tudo em uma vitrine simples, clara e feita
-              para mobile.
-            </p>
+
+            <div className="mt-4.5 flex flex-wrap gap-2.5">
+              <span className="tag-pill">Busca por codigo</span>
+              <span className="tag-pill">Categorias organizadas</span>
+              <span className="tag-pill">Links diretos</span>
+            </div>
+
+            <div className="mt-5">
+              <a
+                href="#produtos"
+                className="cta-primary inline-flex items-center gap-2 rounded-[20px] px-4 py-3 text-sm font-extrabold transition-all duration-200"
+              >
+                Ver produtos
+                <ArrowDownRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
-          <div className="mt-5 grid w-full min-w-0 gap-3 sm:grid-cols-3">
-            {highlights.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <div
-                  key={item.label}
-                  className="soft-panel flex w-full flex-col items-center justify-center rounded-[22px] px-4 py-4 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-400/18"
-                >
-                  <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-400/12 bg-emerald-400/10 text-emerald-300">
-                    <Icon className="h-4.5 w-4.5" strokeWidth={2.2} />
-                  </div>
-                  <p className="text-[0.7rem] font-bold uppercase tracking-[0.18em] text-emerald-300">
-                    {item.label}
+          <div className="grid gap-3">
+            <div className="soft-panel relative overflow-hidden rounded-[28px] p-4 sm:p-5">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(132,234,175,0.16),transparent_22%),linear-gradient(180deg,transparent_0%,rgba(0,0,0,0.18)_100%)]" />
+              <div className="relative flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[18px] border border-emerald-200/12 bg-emerald-100/8 text-emerald-100 shadow-[var(--shadow-soft)]">
+                  <ShoppingBag className="h-6 w-6" strokeWidth={2} />
+                </div>
+                <div>
+                  <p className="text-[0.72rem] font-bold uppercase tracking-[0.2em] text-emerald-200/80">
+                    Achados em destaque
                   </p>
-                  <p className="mt-1.5 max-w-[18ch] text-sm font-semibold leading-6 text-white">
-                    {item.value}
+                  <h2 className="display-title mt-2 text-[1.35rem] font-black leading-[1.02] tracking-[-0.05em] text-white sm:text-[1.55rem]">
+                    Veja rapido, abra o produto e siga para a oferta.
+                  </h2>
+                  <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
+                    Uma vitrine direta para voce encontrar sem perder tempo.
                   </p>
                 </div>
-              );
-            })}
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+              {highlights.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={item.label}
+                    className="metric-card rounded-[22px] px-4 py-3.5"
+                  >
+                    <div className="mb-2.5 flex h-9 w-9 items-center justify-center rounded-[14px] border border-emerald-200/10 bg-emerald-200/6 text-emerald-200">
+                      <Icon className="h-4 w-4" strokeWidth={2.1} />
+                    </div>
+                    <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-emerald-200/78">
+                      {item.label}
+                    </p>
+                    <p className="mt-1.5 text-[0.84rem] font-semibold leading-5 text-white">
+                      {item.value}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

@@ -19,10 +19,10 @@ export function CategoryFilters({
             key={category}
             type="button"
             onClick={() => onChange(category)}
-            className={`whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold transition-all ${
+            className={`whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 ${
               isActive
-                ? "border border-emerald-300/18 bg-[linear-gradient(135deg,#35cf70,#1c8e49)] text-white shadow-[0_16px_30px_rgba(53,207,112,0.26)]"
-                : "border border-emerald-400/10 bg-black/35 text-[var(--foreground)] shadow-[var(--shadow-soft)] hover:-translate-y-0.5 hover:border-emerald-400/22 hover:bg-emerald-400/8 hover:text-emerald-200"
+                ? "cta-primary"
+                : "border border-emerald-400/10 bg-black/28 text-[var(--foreground)] shadow-[var(--shadow-soft)] hover:-translate-y-0.5 hover:border-emerald-300/18 hover:bg-emerald-300/7 hover:text-emerald-50"
             }`}
           >
             {category}
