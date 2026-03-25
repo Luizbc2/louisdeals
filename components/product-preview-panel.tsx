@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Hash, X } from "lucide-react";
+import { trackSiteClick } from "@/lib/analytics";
 import type { Product } from "@/lib/types";
 
 type ProductPreviewPanelProps = {
@@ -54,7 +55,17 @@ export function ProductPreviewPanel({
 
           <button
             type="button"
-            onClick={onClose}
+            onClick={() => {
+              trackSiteClick({
+                buttonKey: "product_modal_close",
+                buttonLabel: "Fechar preview",
+                productId: product.id,
+                metadata: {
+                  numeroAchado: product.numero_achado
+                }
+              });
+              onClose();
+            }}
             className="cta-secondary inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all duration-200"
             aria-label="Fechar detalhes do produto"
           >
@@ -100,7 +111,7 @@ export function ProductPreviewPanel({
                   Valor
                 </p>
                 <p className="display-title mt-2 text-[2.2rem] font-black tracking-[-0.06em] text-white sm:text-[2.55rem]">
-                  {product.preco || "Preco sob consulta"}
+                  {product.preco || "Sob consulta"}
                 </p>
               </div>
 
@@ -115,6 +126,18 @@ export function ProductPreviewPanel({
                 href={product.link_afiliado}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() =>
+                  trackSiteClick({
+                    buttonKey: "product_modal_affiliate",
+                    buttonLabel: "Ver agora no modal",
+                    productId: product.id,
+                    metadata: {
+                      numeroAchado: product.numero_achado,
+                      categoria: product.categoria,
+                      source: "modal"
+                    }
+                  })
+                }
                 className="cta-primary flex w-full items-center justify-center gap-2 rounded-[20px] px-3 py-3 text-sm font-extrabold transition-all duration-200"
               >
                 Ver agora

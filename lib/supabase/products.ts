@@ -16,7 +16,7 @@ export async function fetchProducts(
   let query = supabase
     .from("produtos")
     .select(
-      "id, created_at, titulo, numero_achado, link_afiliado, url_imagem, categoria"
+      "id, created_at, titulo, numero_achado, link_afiliado, url_imagem, categoria, preco"
     )
     .order("created_at", { ascending: false });
 

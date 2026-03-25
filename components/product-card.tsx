@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight, Hash } from "lucide-react";
+import { trackSiteClick } from "@/lib/analytics";
 import type { Product } from "@/lib/types";
 
 type ProductCardProps = {
@@ -25,7 +26,18 @@ export function ProductCard({
     >
       <button
         type="button"
-        onClick={() => onSelect?.(product)}
+        onClick={() => {
+          trackSiteClick({
+            buttonKey: "product_card_select",
+            buttonLabel: "Abrir preview do produto",
+            productId: product.id,
+            metadata: {
+              numeroAchado: product.numero_achado,
+              categoria: product.categoria
+            }
+          });
+          onSelect?.(product);
+        }}
         aria-pressed={isSelected}
         className="flex flex-1 cursor-pointer flex-col text-left focus:outline-none focus-visible:outline-none"
       >
@@ -76,7 +88,7 @@ export function ProductCard({
               </p>
             ) : (
               <p className="min-w-0 text-sm font-semibold text-[var(--muted)]">
-                Preco sob consulta
+                Sob consulta
               </p>
             )}
 
@@ -92,6 +104,18 @@ export function ProductCard({
           href={product.link_afiliado}
           target="_blank"
           rel="noreferrer"
+          onClick={() =>
+            trackSiteClick({
+              buttonKey: "product_card_affiliate",
+              buttonLabel: "Ver agora",
+              productId: product.id,
+              metadata: {
+                numeroAchado: product.numero_achado,
+                categoria: product.categoria,
+                source: "card"
+              }
+            })
+          }
           className="cta-primary relative z-10 flex items-center justify-center gap-2 rounded-[20px] px-3 py-3 text-sm font-extrabold transition-all duration-200 focus:outline-none"
         >
           Ver agora

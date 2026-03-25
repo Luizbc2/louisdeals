@@ -1,4 +1,7 @@
+"use client";
+
 import { ArrowDownRight, ShoppingBag, Sparkles, Tag, Zap } from "lucide-react";
+import { trackSiteClick } from "@/lib/analytics";
 
 const highlights = [
   {
@@ -58,6 +61,15 @@ export function Header() {
             <div className="mt-5">
               <a
                 href="#produtos"
+                onClick={() =>
+                  trackSiteClick({
+                    buttonKey: "hero_view_products",
+                    buttonLabel: "Ver produtos",
+                    metadata: {
+                      area: "header"
+                    }
+                  })
+                }
                 className="cta-primary inline-flex items-center gap-2 rounded-[20px] px-4 py-3 text-sm font-extrabold transition-all duration-200"
               >
                 Ver produtos

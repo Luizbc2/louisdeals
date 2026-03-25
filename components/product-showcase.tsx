@@ -128,10 +128,11 @@ export function ProductShowcase({ initialProducts }: ProductShowcaseProps) {
             <div className="min-w-0">
               <span className="eyebrow mb-3">vitrine em destaque</span>
               <p className="display-title text-[1.65rem] font-black leading-[1.02] tracking-[-0.05em] text-white sm:text-[2rem]">
-                Todos os produtos em um lugar só.
+                Todos os produtos em um lugar so.
               </p>
               <p className="section-subtitle mt-2 max-w-[58ch]">
-                 Clique na imagem do produto para abrir a descrição e acessar a oferta rapidamente, sem
+                Clique na imagem do produto para abrir a descricao e acessar a
+                oferta rapidamente, sem sair da vitrine.
               </p>
             </div>
 
