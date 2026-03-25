@@ -1,4 +1,10 @@
 import { NextResponse } from "next/server";
+import {
+  checkAdminLoginRateLimit,
+  clearAdminLoginFailures,
+  getClientIp,
+  registerAdminLoginFailure
+} from "@/lib/admin-rate-limit";
 import { adminSessionCookie, createAdminSessionToken } from "@/lib/admin-session";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
 
@@ -14,6 +20,7 @@ export async function POST(request: Request) {
       username?: string;
       password?: string;
     };
+    const ip = getClientIp(request);
     const normalizedUsername = username?.trim().toLowerCase();
     const normalizedPassword = password?.trim();
 
@@ -21,6 +28,22 @@ export async function POST(request: Request) {
       return NextResponse.json(
         { error: "Usuario e senha sao obrigatorios." },
         { status: 400 }
+      );
+    }
+
+    const rateLimit = checkAdminLoginRateLimit(ip, normalizedUsername);
+
+    if (rateLimit.blocked) {
+      return NextResponse.json(
+        {
+          error: `Muitas tentativas de login. Aguarde ${rateLimit.retryAfterSeconds} segundos e tente novamente.`
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(rateLimit.retryAfterSeconds)
+          }
+        }
       );
     }
 
@@ -49,11 +72,14 @@ export async function POST(request: Request) {
     const admin = (data as AdminLoginResult[] | null)?.[0];
 
     if (!admin) {
+      registerAdminLoginFailure(ip, normalizedUsername);
       return NextResponse.json(
         { error: "Usuario ou senha invalidos." },
         { status: 401 }
       );
     }
+
+    clearAdminLoginFailures(ip, normalizedUsername);
 
     await supabase
       .from("admin_users")
