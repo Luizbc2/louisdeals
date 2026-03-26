@@ -1,4 +1,4 @@
-# Achadinhos do Zero
+# Louis Deals
 
 Vitrine de afiliados mobile-first em Next.js, Tailwind CSS e Supabase.
 
