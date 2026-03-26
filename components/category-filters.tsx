@@ -30,10 +30,10 @@ export function CategoryFilters({
               });
               onChange(category);
             }}
-            className={`whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 ${
+            className={`min-h-[44px] whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 ${
               isActive
                 ? "cta-primary"
-                : "border border-emerald-400/10 bg-black/28 text-[var(--foreground)] shadow-[var(--shadow-soft)] hover:-translate-y-0.5 hover:border-emerald-300/18 hover:bg-emerald-300/7 hover:text-emerald-50"
+                : "border border-[var(--border)] bg-white/70 text-[var(--foreground)] shadow-[var(--shadow-soft)] hover:-translate-y-0.5 hover:border-[color:var(--line-strong)] hover:bg-[var(--accent-fade)]"
             }`}
           >
             {category}

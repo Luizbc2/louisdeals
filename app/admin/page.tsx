@@ -20,7 +20,7 @@ export default async function AdminLoginPage() {
   );
 
   return (
-    <main className="admin-theme admin-theme-dark admin-login-shell">
+    <main className="admin-theme admin-theme-light admin-login-shell">
       <section className="admin-login-spotlight">
         <div className="admin-login-copy">
           <span className="admin-kicker">
@@ -28,12 +28,12 @@ export default async function AdminLoginPage() {
             Rota privada
           </span>
           <h1 className="admin-display-title max-w-[11ch]">
-            A camada escondida da sua vitrine.
+            A camada de operacao da sua vitrine.
           </h1>
-          <p className="admin-copy max-w-[54ch]">
-            O login fica acessivel apenas pela URL `/admin`. Depois da validacao,
-            o painel mostra cliques por produto, ranking de botoes e cadastro de
-            novos achados em um so lugar.
+          <p className="admin-copy max-w-[56ch]">
+            O login continua acessivel apenas pela URL `/admin`, mas agora com
+            uma apresentacao mais limpa e profissional. Depois da validacao, o
+            painel concentra cliques, botoes e cadastros em um unico fluxo.
           </p>
 
           <div className="admin-login-note">
@@ -43,7 +43,7 @@ export default async function AdminLoginPage() {
           </div>
         </div>
 
-        <div className="w-full max-w-[460px]">
+        <div className="w-full max-w-[480px]">
           <AdminLoginForm setupReady={setupReady} />
         </div>
       </section>

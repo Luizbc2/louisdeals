@@ -25,7 +25,7 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pt-BR">
-      <body>
+      <body className="antialiased">
         {children}
         <Analytics />
       </body>

@@ -54,20 +54,20 @@ export function AdminLoginForm({ setupReady }: AdminLoginFormProps) {
   };
 
   return (
-    <form className="admin-panel space-y-5" onSubmit={handleSubmit}>
+    <form className="admin-panel space-y-5 sm:space-y-6" onSubmit={handleSubmit}>
       <div className="flex items-center gap-3">
         <div className="admin-icon-wrap">
           <ShieldCheck className="h-5 w-5" />
         </div>
         <div>
           <p className="admin-eyebrow">Acesso restrito</p>
-          <h1 className="admin-title mt-2">Painel de controle LouisDeals</h1>
+          <h1 className="admin-title mt-3">Painel de controle LouisDeals</h1>
         </div>
       </div>
 
       <p className="admin-copy">
-        Digite seu usuario e senha cadastrados pelo administrador liberar o
-        paínel administrativo.
+        Entre com o usuario e a senha cadastrados para liberar o painel
+        administrativo.
       </p>
 
       <label className="admin-field">

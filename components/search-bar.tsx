@@ -11,19 +11,23 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
   };
 
   return (
-    <label className="glass-panel group relative flex items-center gap-3 overflow-hidden rounded-[30px] px-4 py-4 transition-all duration-300 focus-within:-translate-y-0.5 focus-within:border-emerald-300/24 focus-within:shadow-[var(--shadow-card)]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(132,234,175,0.16),transparent_20%),linear-gradient(135deg,rgba(255,255,255,0.03),transparent_40%)] opacity-80" />
+    <div className="glass-panel group relative flex items-center gap-3 overflow-hidden rounded-[30px] p-4 transition-all duration-300 focus-within:-translate-y-0.5 focus-within:border-[color:var(--line-strong)] focus-within:shadow-[var(--shadow-card)] sm:p-5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.45),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.18),transparent_46%)] opacity-90" />
 
-      <div className="relative flex h-12 w-12 items-center justify-center rounded-[20px] border border-emerald-200/12 bg-emerald-100/8 text-emerald-100 shadow-[var(--shadow-soft)] transition-transform duration-200 group-focus-within:scale-105">
+      <div className="relative flex h-12 w-12 items-center justify-center rounded-[18px] border border-[var(--border)] bg-white/75 text-[var(--accent)] shadow-[var(--shadow-soft)] transition-transform duration-200 group-focus-within:scale-105">
         <Search className="h-5 w-5" strokeWidth={2.1} />
       </div>
 
       <div className="relative flex-1">
-        <span className="mb-1 block text-[0.7rem] font-bold uppercase tracking-[0.24em] text-emerald-200/72">
+        <label
+          htmlFor="product-search"
+          className="block text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[var(--accent)]"
+        >
           Buscar codigo
-        </span>
+        </label>
         <input
-          className="w-full border-none bg-transparent text-[1.02rem] font-semibold text-white outline-none placeholder:text-[var(--muted)]"
+          id="product-search"
+          className="mt-1 w-full border-none bg-transparent text-[1rem] font-semibold text-[var(--foreground)] outline-none sm:text-[1.06rem]"
           type="text"
           inputMode="numeric"
           pattern="[0-9]*"
@@ -33,7 +37,10 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
           onChange={(event) => handleChange(event.target.value)}
           aria-label="Buscar por numero do achadinho"
         />
+        <span className="mt-1.5 block text-[0.8rem] leading-5 text-[var(--muted)]">
+          Digite apenas o numero do achado.
+        </span>
       </div>
-    </label>
+    </div>
   );
 }
