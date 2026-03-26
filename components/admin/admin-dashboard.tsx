@@ -44,7 +44,6 @@ function createAnalyticsProduct(product: Product): ProductClickAnalytics {
   return {
     ...product,
     total_clicks: 0,
-    preview_clicks: 0,
     affiliate_clicks: 0,
     last_clicked_at: null
   };
@@ -249,8 +248,7 @@ export function AdminDashboard({
               Operacao, cadastros e performance em uma unica visao.
             </h1>
             <p className="admin-copy max-w-[58ch]">
-              O layout do painel foi reorganizado para leitura rapida, melhor alinhado no
-              desktop e muito mais controlado no mobile.
+              Altere produtos, monitore a perfomance de cada um e cadastre novos produtos.
             </p>
           </div>
 
@@ -318,7 +316,7 @@ export function AdminDashboard({
             <span className="admin-stat-icon">
               <BarChart3 className="h-5 w-5" />
             </span>
-            <p className="admin-stat-label">Cliques em produtos</p>
+            <p className="admin-stat-label">Cliques em oferta</p>
             <strong className="admin-stat-value">
               {formatCount(dashboardData.totals.totalProductClicks)}
             </strong>
@@ -448,9 +446,7 @@ export function AdminDashboard({
                         </div>
 
                         <div className="admin-product-stats">
-                          <span>Total: {formatCount(product.total_clicks)}</span>
-                          <span>Preview: {formatCount(product.preview_clicks)}</span>
-                          <span>Oferta: {formatCount(product.affiliate_clicks)}</span>
+                          <span>Cliques: {formatCount(product.total_clicks)}</span>
                           <span>Ultimo clique: {formatDate(product.last_clicked_at)}</span>
                         </div>
                       </div>

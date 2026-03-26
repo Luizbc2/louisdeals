@@ -26,7 +26,6 @@ export type SiteClickPayload = {
 
 export type ProductClickAnalytics = Product & {
   total_clicks: number;
-  preview_clicks: number;
   affiliate_clicks: number;
   last_clicked_at: string | null;
 };

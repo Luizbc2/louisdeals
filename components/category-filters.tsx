@@ -1,5 +1,3 @@
-import { trackSiteClick } from "@/lib/analytics";
-
 type CategoryFiltersProps = {
   categories: string[];
   activeCategory: string;
@@ -20,16 +18,7 @@ export function CategoryFilters({
           <button
             key={category}
             type="button"
-            onClick={() => {
-              trackSiteClick({
-                buttonKey: "category_filter",
-                buttonLabel: `Filtro ${category}`,
-                metadata: {
-                  category
-                }
-              });
-              onChange(category);
-            }}
+            onClick={() => onChange(category)}
             className={`min-h-[44px] whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 ${
               isActive
                 ? "cta-primary"

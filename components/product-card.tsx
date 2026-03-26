@@ -5,50 +5,31 @@ import type { Product } from "@/lib/types";
 
 type ProductCardProps = {
   product: Product;
-  isSelected?: boolean;
-  onSelect?: (product: Product) => void;
   priority?: boolean;
 };
 
-export function ProductCard({
-  product,
-  isSelected = false,
-  onSelect,
-  priority = false
-}: ProductCardProps) {
-  const handleSelect = () => {
-    trackSiteClick({
-      buttonKey: "product_card_select",
-      buttonLabel: "Abrir preview do produto",
-      productId: product.id,
-      metadata: {
-        numeroAchado: product.numero_achado,
-        categoria: product.categoria
-      }
-    });
-    onSelect?.(product);
-  };
-
+export function ProductCard({ product, priority = false }: ProductCardProps) {
   return (
     <article
-      className={`glass-panel group flex h-full w-full min-w-0 flex-col overflow-hidden rounded-[32px] border transition-all duration-300 ${
-        isSelected
-          ? "border-[color:var(--line-strong)] shadow-[0_26px_56px_rgba(19,122,103,0.16)]"
-          : "border-[var(--border)] hover:-translate-y-1 hover:border-[color:var(--line-strong)] hover:shadow-[var(--shadow-card)]"
-      }`}
+      className="glass-panel group flex h-full w-full min-w-0 flex-col overflow-hidden rounded-[32px] border border-[var(--border)] transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--line-strong)] hover:shadow-[var(--shadow-card)]"
     >
-      <div
-        role="button"
-        tabIndex={0}
-        onClick={handleSelect}
-        onKeyDown={(event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            handleSelect();
-          }
-        }}
-        aria-pressed={isSelected}
-        className="flex flex-1 cursor-pointer flex-col text-left focus:outline-none focus-visible:outline-none"
+      <a
+        href={product.link_afiliado}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() =>
+          trackSiteClick({
+            buttonKey: "product_card_affiliate",
+            buttonLabel: "Ver agora",
+            productId: product.id,
+            metadata: {
+              numeroAchado: product.numero_achado,
+              categoria: product.categoria,
+              source: "card"
+            }
+          })
+        }
+        className="flex h-full flex-1 flex-col text-left focus:outline-none focus-visible:outline-none"
       >
         <div className="relative aspect-[4/3.25] overflow-hidden bg-[var(--surface-muted)]">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.28),transparent_24%),linear-gradient(180deg,transparent_50%,rgba(22,18,15,0.18)_100%)] opacity-95" />
@@ -63,7 +44,7 @@ export function ProductCard({
           </div>
           <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-2 p-4">
             <span className="rounded-full border border-white/40 bg-black/16 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/88 backdrop-blur-md">
-              {isSelected ? "Preview aberto" : "Toque para ampliar"}
+              Abrir na Shopee
             </span>
           </div>
           <Image
@@ -72,9 +53,7 @@ export function ProductCard({
             fill
             priority={priority}
             loading={priority ? "eager" : "lazy"}
-            className={`transform-gpu object-cover transition-transform duration-500 [backface-visibility:hidden] ${
-              isSelected ? "scale-[1.04]" : "scale-[1.02] group-hover:scale-[1.08]"
-            }`}
+            className="transform-gpu object-cover transition-transform duration-500 [backface-visibility:hidden] scale-[1.02] group-hover:scale-[1.08]"
             sizes="(max-width: 767px) 100vw, (max-width: 1535px) 50vw, 33vw"
           />
         </div>
@@ -91,13 +70,12 @@ export function ProductCard({
             </div>
 
             <span className="tag-pill-muted px-3 py-1 text-[0.68rem] uppercase tracking-[0.16em]">
-              Preview
+              Oferta
             </span>
           </div>
 
           <p className="text-[0.92rem] leading-7 text-[var(--muted)]">
-            Clique no card para abrir a foto maior e ver os detalhes com mais
-            destaque.
+            Clique na imagem ou no botao abaixo para abrir o produto na Shopee.
           </p>
 
           <div className="mt-auto flex flex-wrap items-end justify-between gap-3 border-t border-[var(--border)] pt-4">
@@ -112,35 +90,17 @@ export function ProductCard({
             )}
 
             <span className="text-[0.76rem] font-bold uppercase tracking-[0.18em] text-[var(--accent)]">
-              Preview
+              Ver agora
             </span>
           </div>
         </div>
-      </div>
-
-      <div className="border-t border-[var(--border)] px-4 pb-4 pt-4 sm:px-5 sm:pb-5">
-        <a
-          href={product.link_afiliado}
-          target="_blank"
-          rel="noreferrer"
-          onClick={() =>
-            trackSiteClick({
-              buttonKey: "product_card_affiliate",
-              buttonLabel: "Ver agora",
-              productId: product.id,
-              metadata: {
-                numeroAchado: product.numero_achado,
-                categoria: product.categoria,
-                source: "card"
-              }
-            })
-          }
-          className="cta-primary flex min-h-[50px] items-center justify-center gap-2 rounded-full px-4 text-sm font-extrabold transition-all duration-200 focus:outline-none"
-        >
-          Ver agora
-          <ArrowUpRight className="h-4 w-4" />
-        </a>
-      </div>
+        <div className="border-t border-[var(--border)] px-4 pb-4 pt-4 sm:px-5 sm:pb-5">
+          <span className="cta-primary flex min-h-[50px] items-center justify-center gap-2 rounded-full px-4 text-sm font-extrabold transition-all duration-200 focus:outline-none">
+            Ver agora
+            <ArrowUpRight className="h-4 w-4" />
+          </span>
+        </div>
+      </a>
     </article>
   );
 }

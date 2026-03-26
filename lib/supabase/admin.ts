@@ -6,6 +6,16 @@ import type {
 } from "@/lib/types";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
 
+const IGNORED_ADMIN_BUTTON_KEYS = new Set([
+  "category_filter",
+  "product_card_select",
+  "product_modal_close"
+]);
+
+function shouldIgnoreAdminClick(buttonKey: string) {
+  return IGNORED_ADMIN_BUTTON_KEYS.has(buttonKey);
+}
+
 const EMPTY_DASHBOARD: AdminDashboardData = {
   productAnalytics: [],
   buttonAnalytics: [],
@@ -43,7 +53,7 @@ export async function fetchAdminDashboardData(): Promise<AdminDashboardData> {
           "id, clicked_at, button_key, button_label, page_path, product_id, metadata"
         )
         .order("clicked_at", { ascending: false })
-        .limit(12)
+        .limit(60)
     ]);
 
   if (productAnalyticsResult.error) {
@@ -67,12 +77,28 @@ export async function fetchAdminDashboardData(): Promise<AdminDashboardData> {
     );
   }
 
-  const productAnalytics =
-    (productAnalyticsResult.data as ProductClickAnalytics[] | null) ?? [];
-  const buttonAnalytics =
+  const rawProductAnalytics =
+    (productAnalyticsResult.data as
+      | (ProductClickAnalytics & { preview_clicks?: number })[]
+      | null) ?? [];
+  const rawButtonAnalytics =
     (buttonAnalyticsResult.data as ButtonClickAnalytics[] | null) ?? [];
-  const recentClicks =
+  const rawRecentClicks =
     (recentClicksResult.data as RecentClickActivity[] | null) ?? [];
+
+  const productAnalytics = rawProductAnalytics.map(
+    ({ affiliate_clicks, preview_clicks: _previewClicks, ...product }) => ({
+      ...product,
+      affiliate_clicks,
+      total_clicks: affiliate_clicks
+    })
+  );
+  const buttonAnalytics = rawButtonAnalytics.filter(
+    (item) => !shouldIgnoreAdminClick(item.button_key)
+  );
+  const recentClicks = rawRecentClicks
+    .filter((item) => !shouldIgnoreAdminClick(item.button_key))
+    .slice(0, 12);
 
   return {
     productAnalytics,

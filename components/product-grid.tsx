@@ -3,15 +3,9 @@ import { ProductCard } from "@/components/product-card";
 
 type ProductGridProps = {
   products: Product[];
-  selectedProductId?: number | null;
-  onSelectProduct?: (product: Product) => void;
 };
 
-export function ProductGrid({
-  products,
-  selectedProductId = null,
-  onSelectProduct
-}: ProductGridProps) {
+export function ProductGrid({ products }: ProductGridProps) {
   if (products.length === 0) {
     return (
       <div className="glass-panel rounded-[34px] px-5 py-12 text-center sm:px-8">
@@ -32,8 +26,6 @@ export function ProductGrid({
         <ProductCard
           key={product.id}
           product={product}
-          isSelected={selectedProductId === product.id}
-          onSelect={onSelectProduct}
           priority={index < 6}
         />
       ))}
