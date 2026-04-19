@@ -1,35 +1,56 @@
-# Louis Deals
+# LouisDeals
 
-Vitrine de afiliados mobile-first em Next.js, Tailwind CSS e Supabase.
+[![Site](https://img.shields.io/badge/Link-Projeto-7dffb7?style=for-the-badge&logo=vercel&logoColor=0b1510&labelColor=0b1510)](https://louisdeals-nine.vercel.app/)
+[![Repositorio](https://img.shields.io/badge/Reposit%C3%B3rio-GitHub-7dffb7?style=for-the-badge&logo=github&logoColor=0b1510&labelColor=0b1510)](https://github.com/Luizbc2/louisdeals)
 
-## Rodando o projeto
+Catálogo web pensado para organizar produtos, permitir busca rápida por código e direcionar o usuário direto para a oferta. O foco aqui foi criar uma vitrine moderna, prática e rápida de navegar.
 
-1. Instale as dependencias:
+## Stack
+
+- Next.js
+- React
+- TypeScript
+- Supabase
+
+## O que o projeto entrega
+
+- Busca por código
+- Organização por categorias
+- Cards com link direto para oferta
+- Layout moderno com foco em navegação rápida
+
+## Como rodar localmente
 
 ```bash
 npm install
 ```
 
-2. Copie `.env.example` para `.env.local` e preencha:
+Crie o arquivo `.env.local` usando o `.env.example` como base:
 
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 ```
 
-3. Rode o projeto:
+Depois rode:
 
 ```bash
 npm run dev
 ```
 
-## Supabase
+## Estrutura principal
 
-Execute o schema em `supabase/schema.sql` para criar a tabela `produtos`.
+```bash
+app/
+components/
+lib/
+supabase/
+public/
+```
 
-## Estrutura
+## Autor
 
-- `app/page.tsx`: home server-side que busca os produtos.
-- `components/*`: UI mobile-first para header, busca, filtros e cards.
-- `lib/supabase/products.ts`: funcao que consulta os produtos no Supabase.
-- `lib/mock-products.ts`: fallback local para demonstracao sem backend.
+**Luiz Otávio**
+
+- GitHub: https://github.com/Luizbc2
+- LinkedIn: https://www.linkedin.com/in/luiz-otavio-mello-de-campos-66699224b/
